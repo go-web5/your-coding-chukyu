@@ -165,7 +165,7 @@ ul {
 .header__inner .header__logo .header__ttl {
   color: #333;
   line-height: 47px;
-  padding-left: 7px;
+  padding-left: 9px;
 }
 
 @media screen and (max-width: 370px) {
@@ -1576,16 +1576,7 @@ ul {
 }
 
 .contact__form-check-submit input[type="checkbox"] {
-  -webkit-transform: scale(1);
-  -webkit-transform-origin: 80% 50%;
-  -moz-transform: scale(1);
-  -moz-transform-origin: 80% 50%;
-  -ms-transform: scale(1);
-  -ms-transform-origin: 80% 50%;
-  width: 20px;
-  height: 20px;
-  vertical-align: sub;
-  margin-right: 10px;
+  display: none;
 }
 
 .contact__form-check-submit input[type="submit"] {
