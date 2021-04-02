@@ -1408,6 +1408,10 @@ ul {
         height:20px;
         vertical-align: sub;
         margin-right: 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
       }
 
       input[type="submit"] {
