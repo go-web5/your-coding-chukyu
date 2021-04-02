@@ -1402,6 +1402,8 @@ ul {
         -moz-transform-origin:80% 50%;
         -ms-transform: scale(1);
         -ms-transform-origin:80% 50%;
+            transform: scale(1);
+            transform-origin:80% 50%;
         width:20px;
         height:20px;
         vertical-align: sub;
