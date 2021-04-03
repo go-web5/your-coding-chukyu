@@ -1584,7 +1584,6 @@ ul {
   /* デフォルトのスタイルをリセット */
   position: absolute;
   display: block;
-  /* チェックボックスにチェックした時 */
 }
 
 .contact__form-check-submit input[type="checkbox"]:checked + .contact__form-check-submit-text:after {
@@ -1595,13 +1594,10 @@ ul {
   content: '';
   width: 9px;
   height: 16px;
+  top: 3%;
+  left: 2%;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%), rotate(45deg);
-  -ms-transform: translateY(-50%), rotate(45deg);
-  -webkit-transform: translateY(-50%), rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .contact__form-check-submit input[type="submit"] {

@@ -1401,7 +1401,7 @@ ul {
         position: absolute;
         display: block;
 
-        /* チェックボックスにチェックした時 */
+        // チェックボックスにチェックした時
         &:checked + .contact__form-check-submit-text:after {
           position: absolute;
           display: block;
@@ -1410,13 +1410,12 @@ ul {
           content: '';
           width: 9px; 
           height: 16px;
+          
+          top: 3%;
+          left: 2%;
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
           transform: rotate(45deg); 
-
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%),rotate(45deg);
-          -ms-transform: translateY(-50%),rotate(45deg);
-          -webkit-transform: translateY(-50%),rotate(45deg);
         }
       }
 
