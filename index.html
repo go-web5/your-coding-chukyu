@@ -15,6 +15,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css?ver=1.1.2">
 
+
   <!-- ファビコン --><!-- 複数サイズの画像を1つのファイルにまとめたico形式を用意 -->
   <link rel="shortcut icon" href="images/favicon.ico">
   
@@ -368,22 +369,22 @@
     <div class="contact__form" data-aos="fade-up">
       <form action="#" class="contact__form-inner">
         <div class="contact__form-name" id="nameSection">
-          <label for="name" name="your-name">お名前<span>必須</span></label>
+          <label for="name" name="your-name">お名前<span class="Required-tag">必須</span></label>
           <p class="alert">お名前を入力してください</p>
           <input type="text" id="name" placeholder="山田太郎" value="">
         </div>
         <div class="contact__form-mail" id="mailSection">
-          <label for="mail" name="your-mail">メールアドレス<span>必須</span></label>
+          <label for="mail" name="your-mail">メールアドレス<span class="Required-tag">必須</span></label>
           <p class="alert">メールアドレスを入力してください</p>
           <input type="email" id="mail" placeholder="yamada@email" value="">
         </div>
         <div class="contact__form-contact" id="textareaSection">
-          <label for="contact-message">お問い合わせ内容<span>必須</span></label>
+          <label for="contact-message">お問い合わせ内容<span class="Required-tag">必須</span></label>
           <p class="alert">お問い合わせ内容を入力してください</p>
           <textarea name="your-contact" id="contact-message" cols="30" rows="10" placeholder="コーディングの見積もりをお願いします" value=""></textarea>
         </div>
         <div class="contact__form-check-submit" id="checkboxSection">
-          <label for="privacyCheck"><input type="checkbox" id="privacyCheck"><sapn class="contact__form-check-submit-text">プライバシーポリシーに同意する</sapn></label>
+          <label for="privacyCheck"><input type="checkbox" id="privacyCheck"><span class="contact__form-check-submit-text">プライバシーポリシーに同意する</span></label>
           <p class="alert">チェックボックスにチェックをつけてください</p>
           <label for=""><input type="submit" value="送信する" class="btn contact__form-btn" id="submitBtn"></label>
         </div>

@@ -1526,7 +1526,7 @@ ul {
   display: block;
 }
 
-.contact__form-inner label span {
+.contact__form-inner label .Required-tag {
   font-size: 0.875rem;
   margin-left: 23px;
   padding: 6px 16px;
@@ -1575,29 +1575,16 @@ ul {
   margin-top: 23px;
 }
 
-.contact__form-check-submit input[type="checkbox"] {
-  opacity: 0;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* デフォルトのスタイルをリセット */
-  position: absolute;
-  display: block;
+@media screen and (max-width: 576px) {
+  .contact__form-check-submit-text {
+    font-size: 0.75rem;
+  }
 }
 
-.contact__form-check-submit input[type="checkbox"]:checked + .contact__form-check-submit-text:after {
-  position: absolute;
-  display: inline-block;
-  border-right: 3px solid #FA41CC;
-  border-bottom: 3px solid #FA41CC;
-  content: '';
-  width: 9px;
-  height: 16px;
-  top: 3%;
-  left: 2%;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+@media screen and (max-width: 370px) {
+  .contact__form-check-submit-text {
+    font-size: 0.625rem;
+  }
 }
 
 .contact__form-check-submit input[type="submit"] {
@@ -1617,41 +1604,64 @@ ul {
   }
 }
 
-.contact__form-check-submit-text {
+input[type="checkbox"] {
+  opacity: 0;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* デフォルトのスタイルをリセット */
+  position: absolute;
+  /* レイアウトに関与させない */
+}
+
+input[type="checkbox"] + span {
   cursor: pointer;
   position: relative;
   padding-left: 31px;
-  /* チェックボックス */
 }
 
-@media screen and (max-width: 576px) {
-  .contact__form-check-submit-text {
-    font-size: 0.75rem;
-  }
-}
-
-@media screen and (max-width: 370px) {
-  .contact__form-check-submit-text {
-    font-size: 0.625rem;
-  }
-}
-
-.contact__form-check-submit-text:before {
+input[type="checkbox"] + span::before, input[type="checkbox"] + span::after {
   content: '';
-  width: 20px;
-  /* ボックスの横幅 */
-  height: 20px;
-  /* ボックスの縦幅 */
-  display: inline-block;
+  display: block;
   position: absolute;
-  background-color: #fff;
-  border: solid 1px #707070;
-  border-radius: 1px;
+  -webkit-transition: .10s;
+  transition: .10s;
+}
+
+input[type="checkbox"] + span::before {
+  width: 20px;
+  height: 20px;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
+  border: 1px solid #333;
+  border-radius: 1px;
+}
+
+input[type="checkbox"] + span::after {
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  width: 9px;
+  height: 16px;
+  transform: rotate(45deg) translate(-5px, -60%);
+  -ms-transform: rotate(45deg) translate(-5px, -60%);
+  -webkit-transform: rotate(45deg) translate(-5px, -60%);
+  border-radius: 1px;
+  top: 50%;
+  left: 2px;
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + span::before {
+  background-color: #FA41CC;
+  border: 0px none;
+}
+
+input[type="checkbox"]:checked + span::after {
+  opacity: 1;
 }
 
 .footer {

@@ -437,7 +437,6 @@ ul {
     margin-right: 13.2%;
     padding-top: 27px;
 
-
     @include xl {
       margin-right: 7%;
     }
@@ -1336,12 +1335,11 @@ ul {
     }
 
     &-inner {
-      
       label {
         font-size: 1rem;
         display: block;
 
-        span {
+        .Required-tag {
           font-size: 0.875rem;
           margin-left: 23px;
           padding: 6px 16px;
@@ -1387,35 +1385,17 @@ ul {
       margin-top: 21px;
     }
 
+    // チェックボックスと送信ボタン
     &-check-submit {
       text-align: center;
       margin-top: 23px;
 
-      // デフォルトのチェックボックス非表示
-      input[type="checkbox"] {
-        opacity:0; 
-        -webkit-appearance: none;
-        -ms-appearance: none;
-        -moz-appearance: none;
-        appearance: none;  /* デフォルトのスタイルをリセット */
-        position: absolute;
-        display: block;
-
-        // チェックボックスにチェックした時
-        &:checked + .contact__form-check-submit-text:after {
-          position: absolute;
-          display: inline-block;
-          border-right: 3px solid $color-pink; 
-          border-bottom: 3px solid $color-pink; 
-          content: '';
-          width: 9px; 
-          height: 16px;
-          
-          top: 3%;
-          left: 2%;
-          -ms-transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg); 
+      &-text {
+        @include sm {
+          font-size: 0.75rem;
+        }
+        @include ss {
+          font-size: 0.625rem;
         }
       }
 
@@ -1437,33 +1417,68 @@ ul {
   }
 }
 
-.contact__form-check-submit-text {
-  cursor: pointer;
-  position: relative;
-  padding-left: 31px;
+// ここから自作チェックボックス
 
-  @include sm {
-    font-size: 0.75rem;
-  }
-  @include ss {
-    font-size: 0.625rem;
+// デフォルトのチェックボックス透明にする,tabで操作できる状態
+input[type="checkbox"] {
+  opacity:0; 
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;  /* デフォルトのスタイルをリセット */
+  position: absolute; /* レイアウトに関与させない */
+
+  // チェックする前
+  + span {
+    cursor: pointer;
+    position: relative;
+    padding-left: 31px;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position:absolute;
+      transition: .10s;
+    }
+
+    // チェック前の四角の枠線だけ
+    &::before {
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      border: 1px solid $color-grey1;
+      border-radius: 1px;
+    }
+
+    // チェック後のチェックマーク（チェック前は透明にしておく）
+    &::after {
+      border-right: 3px solid $color-white; 
+      border-bottom: 3px solid $color-white; 
+      width: 9px; 
+      height: 16px;
+      transform: rotate(45deg) translate(-5px,-60%);
+      -ms-transform: rotate(45deg) translate(-5px,-60%);
+      -webkit-transform: rotate(45deg) translate(-5px,-60%);
+      border-radius: 1px;
+      top: 50%;
+      left: 2px;
+      opacity: 0;
+    }
   }
 
-  /* チェックボックス */
-  &:before {
-    content: '';
-    width: 20px;  /* ボックスの横幅 */
-    height: 20px;  /* ボックスの縦幅 */
-    display: inline-block;
-    position: absolute;
-    background-color: $color-white;
-    border: solid 1px $color-grey5;
-    border-radius: 1px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+  // チェック後に背景色をつけてボーダーを消す
+  &:checked + span::before {
+    background-color: $color-pink;
+    border: 0px none;
+  }
+  // チェック後に透明にしておいたチェックマークを表示
+  &:checked + span::after {
+    opacity: 1;
   }
 }
 
