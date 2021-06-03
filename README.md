@@ -1,9 +1,9 @@
 コーディング代行会社のコーポレートサイト（架空） ※解答コードなしの教材
 
 【詳細】
-担当：Coding
-制作期間：20日間
-使用言語：HTML, CSS, SASS, JavaScript (jQuery)
+担当：Coding,
+制作期間：20日間,
+使用言語：HTML, CSS, SASS, JavaScript (jQuery),
 デザインツール：XD
 
 【実装パーツ】
